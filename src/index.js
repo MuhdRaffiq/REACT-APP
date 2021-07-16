@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
+//CSS
+import './index.css';
+
 // stateless functional
 // always return JSX
 // div / section / article or fragment
@@ -11,15 +15,15 @@ import ReactDOM from 'react-dom';
 
 function Booklist() {
   return (
-    <section>
+    <section className='booklist'>
       <Book/>
-
+     
     </section>
   );
 };
 
 const Book = () => {
-  return <article>
+  return <article className='book'>
     <Image/>
     <Title/>
     <Author/>
@@ -34,7 +38,7 @@ const Title = () => (
 );
 
 const Author = () => (
-  <h4>Clint McFlroy</h4>
+  <h4 style={{color:'#617d98', fontSize: '0.75rem', marginTop:'0.25rem'}}>Clint McFlroy</h4>
 )
 
 ReactDOM.render(<Booklist/>, document.getElementById('root'));
