@@ -13,32 +13,55 @@ import './index.css';
 // close every elemeny
 // formatting
 
+//Setup vars
+const firstBook = {
+  img: "https://images-na.ssl-images-amazon.com/images/I/61wi-B-Hi9L._AC_SX184_.jpg",
+  title: 'The  Adventure Zone',
+  author: 'Clint McFlroy'
+}
+
+const secondBook = {
+  img: "https://images-na.ssl-images-amazon.com/images/I/51vSbWpF+dS._AC_SX184_.jpg",
+  title: 'Atomic Habits',
+  author: 'James Clear'
+}
+
+const thirdBook = {
+  img: "https://images-na.ssl-images-amazon.com/images/I/5103HgmdtjS._AC_SX184_.jpg",
+  title: 'The Bad Guys',
+  author: 'Aaron Blabey'
+}
+
 function Booklist() {
   return (
     <section className='booklist'>
-      <Book/>
-     
+      <Book img = {firstBook.img} title = {firstBook.title} author = {firstBook.author} />
+      <Book img = {secondBook.img} title = {secondBook.title} author = {secondBook.author}/>
+      <Book img = {thirdBook.img} title = {thirdBook.title} author = {thirdBook.author}/>
     </section>
   );
 };
 
-const Book = () => {
+
+const Book = (props) => {
+  const {img, title, author} = props;
+  //console.log(props);
   return <article className='book'>
-    <Image/>
-    <Title/>
-    <Author/>
+    <img src = {img} alt=''/>
+    <h1>{title}</h1>
+    <h4>{author}</h4>
   </article>
 };
 
-const Image =() => (<img src="https://images-na.ssl-images-amazon.com/images/I/61wi-B-Hi9L._SX336_BO1,204,203,200_.jpg" alt="" />
-);
+// const Image =() => (<img src={img} alt="" />
+// );
 
-const Title = () => (
-  <h1>The Adventure Zone</h1>
-);
+// const Title = () => (
+//   <h1>The Adventure Zone</h1>
+// );
 
-const Author = () => (
-  <h4 style={{color:'#617d98', fontSize: '0.75rem', marginTop:'0.25rem'}}>Clint McFlroy</h4>
-)
+// const Author = () => (
+//   <h4>Clint McFlroy</h4>
+// )
 
 ReactDOM.render(<Booklist/>, document.getElementById('root'));
