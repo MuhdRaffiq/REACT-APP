@@ -13,33 +13,39 @@ import './index.css';
 // close every elemeny
 // formatting
 
-//Setup vars
-const firstBook = {
+//Setup vars 
+const books = [
+  {
   img: "https://images-na.ssl-images-amazon.com/images/I/61wi-B-Hi9L._AC_SX184_.jpg",
   title: 'The  Adventure Zone',
   author: 'Clint McFlroy'
 }
-
-const secondBook = {
+,
+ {
   img: "https://images-na.ssl-images-amazon.com/images/I/51vSbWpF+dS._AC_SX184_.jpg",
   title: 'Atomic Habits',
   author: 'James Clear'
-}
+},
+];
 
-const thirdBook = {
-  img: "https://images-na.ssl-images-amazon.com/images/I/5103HgmdtjS._AC_SX184_.jpg",
-  title: 'The Bad Guys',
-  author: 'Aaron Blabey'
-}
+const names = ['john', 'peter', 'susan'];
+const newNames = names.map((name) =>{
+  return <h1>{name}</h1>
+});
+
+console.log(newNames);
 
 function Booklist() {
   return (
     <section className='booklist'>
-      <Book img = {firstBook.img} title = {firstBook.title} author = {firstBook.author} >
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A autem similique voluptatum ipsa minus sint explicabo magnam fugit itaque quam?</p>
-      </Book>
-      <Book img = {secondBook.img} title = {secondBook.title} author = {secondBook.author}/>
-      
+      {books.map((book) => {
+        //console.log(book);
+        const {img, title, author} = book;
+        return <div>
+          <h3>{title}</h3>
+          <h6>{author}</h6>
+        </div>;
+      })}
     </section>
   );
 };
