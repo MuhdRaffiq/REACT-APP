@@ -15,16 +15,21 @@ import './index.css';
 
 //Setup vars 
 const books = [
-  {
+  {id: 1,
   img: "https://images-na.ssl-images-amazon.com/images/I/61wi-B-Hi9L._AC_SX184_.jpg",
   title: 'The  Adventure Zone',
   author: 'Clint McFlroy'
 }
 ,
- {
+ {id: 2,
   img: "https://images-na.ssl-images-amazon.com/images/I/51vSbWpF+dS._AC_SX184_.jpg",
   title: 'Atomic Habits',
   author: 'James Clear'
+},
+ {id: 3,
+  img: "https://images-na.ssl-images-amazon.com/images/I/51Hj-Lfw+0S._AC_SX184_.jpg",
+  title: 'American Marxism',
+  author: 'Mark R. Levin'
 },
 ];
 
@@ -40,11 +45,10 @@ function Booklist() {
     <section className='booklist'>
       {books.map((book) => {
         //console.log(book);
-        const {img, title, author} = book;
-        return <div>
-          <h3>{title}</h3>
-          <h6>{author}</h6>
-        </div>;
+        //const {img, title, author} = book;
+        return (
+          <Book key={book.id} book = {book}></Book>
+        )
       })}
     </section>
   );
@@ -52,12 +56,11 @@ function Booklist() {
 
 
 const Book = (props) => {
-  const {img, title, author, children} = props;
+  const {img, title, author, children} = props.book;
   //console.log(props);
   return <article className='book'>
     <img src = {img} alt=''/>
     <h1>{title}</h1>
-    {children}
     <h4>{author}</h4>
   </article>
 };
