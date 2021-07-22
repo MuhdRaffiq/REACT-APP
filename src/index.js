@@ -47,7 +47,7 @@ function Booklist() {
         //console.log(book);
         //const {img, title, author} = book;
         return (
-          <Book key={book.id} book = {book}></Book>
+          <Book key={book.id} book={book}></Book>
         )
       })}
     </section>
@@ -58,10 +58,27 @@ function Booklist() {
 const Book = (props) => {
   const {img, title, author, children} = props.book;
   //console.log(props);
+  // attribute, eventHandler
+  // onClick, onMouseOver
+
+  const clickHandler = () => {
+    alert('hello world');
+  };
+
+  const complexExample = (author) => {
+    console.log(author)
+  }
+
   return <article className='book'>
     <img src = {img} alt=''/>
-    <h1>{title}</h1>
+    <h1 onClick={() => console.log(title)}>{title}</h1>
     <h4>{author}</h4>
+    <button type="button" onClick={clickHandler}>
+      reference example
+    </button>
+    <button type="button" onClick={complexExample(author)}>
+      more complex example
+    </button>
   </article>
 };
 
