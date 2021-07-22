@@ -5,33 +5,9 @@ import ReactDOM from 'react-dom';
 //CSS
 import './index.css';
 
-// stateless functional
-// always return JSX
-// div / section / article or fragment
-// use camelCase for html attribute
-// className instead of class
-// close every elemeny
-// formatting
+import {books} from './books';
 
-//Setup vars 
-const books = [
-  {id: 1,
-  img: "https://images-na.ssl-images-amazon.com/images/I/61wi-B-Hi9L._AC_SX184_.jpg",
-  title: 'The  Adventure Zone',
-  author: 'Clint McFlroy'
-}
-,
- {id: 2,
-  img: "https://images-na.ssl-images-amazon.com/images/I/51vSbWpF+dS._AC_SX184_.jpg",
-  title: 'Atomic Habits',
-  author: 'James Clear'
-},
- {id: 3,
-  img: "https://images-na.ssl-images-amazon.com/images/I/51Hj-Lfw+0S._AC_SX184_.jpg",
-  title: 'American Marxism',
-  author: 'Mark R. Levin'
-},
-];
+import Book from './Book';
 
 const names = ['john', 'peter', 'susan'];
 const newNames = names.map((name) =>{
@@ -55,32 +31,7 @@ function Booklist() {
 };
 
 
-const Book = (props) => {
-  const {img, title, author, children} = props.book;
-  //console.log(props);
-  // attribute, eventHandler
-  // onClick, onMouseOver
 
-  const clickHandler = () => {
-    alert('hello world');
-  };
-
-  const complexExample = (author) => {
-    console.log(author)
-  }
-
-  return <article className='book'>
-    <img src = {img} alt=''/>
-    <h1 onClick={() => console.log(title)}>{title}</h1>
-    <h4>{author}</h4>
-    <button type="button" onClick={clickHandler}>
-      reference example
-    </button>
-    <button type="button" onClick={complexExample(author)}>
-      more complex example
-    </button>
-  </article>
-};
 
 // const Image =() => (<img src={img} alt="" />
 // );
